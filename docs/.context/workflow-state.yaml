@@ -1,0 +1,106 @@
+# AI駆動開発 ワークフロー進捗管理
+# 各スキル実行時に自動更新される
+
+project:
+  name: "勤怠管理システム（Kintai）"
+  overview: docs/20_ドメイン/プロジェクト概要.md
+  tech_stack: docs/10_アーキテクチャ/技術スタック.md
+  architecture_pattern: standard
+
+phases:
+  phase_0:
+    status: completed
+    outputs:
+      - docs/20_ドメイン/プロジェクト概要.md
+      - docs/10_アーキテクチャ/技術スタック.md
+    handoff: docs/.context/phase0-handoff.md
+  phase_05:
+    status: completed
+    outputs:
+      - docs/20_ドメイン/ディスカバリー/会話記録/Session1_会話記録.md
+      - docs/20_ドメイン/ディスカバリー/会話記録/Session2_会話記録.md
+      - docs/20_ドメイン/ディスカバリー/会話記録/Session3_会話記録.md
+      - docs/20_ドメイン/ディスカバリー/要約/Session1_要約.md
+      - docs/20_ドメイン/ディスカバリー/要約/Session2_要約.md
+      - docs/20_ドメイン/ディスカバリー/要約/Session3_要約.md
+      - docs/20_ドメイン/ディスカバリー/要約/統合要約.md
+      - docs/20_ドメイン/ディスカバリー/ES用サマリー.md
+    handoff: docs/.context/phase05-handoff.md
+  phase_1:
+    status: completed
+    contexts:
+      勤怠管理: docs/20_ドメイン/イベントストーミング/勤怠管理.md
+      申請承認: docs/20_ドメイン/イベントストーミング/申請承認.md
+      休暇管理: docs/20_ドメイン/イベントストーミング/休暇管理.md
+      月次処理: docs/20_ドメイン/イベントストーミング/月次処理.md
+    handoff: docs/.context/phase1-handoff.md
+  phase_2:
+    status: completed
+    aggregates:
+      勤怠記録: docs/20_ドメイン/勤怠管理/勤怠記録集約.md
+      残業申請: docs/20_ドメイン/申請承認/残業申請集約.md
+      有給残高: docs/20_ドメイン/休暇管理/有給残高集約.md
+      月次締め: docs/20_ドメイン/月次処理/月次締め集約.md
+    handoff: docs/.context/phase2-handoff.md
+  phase_3:
+    status: completed
+    aggregates:
+      勤怠記録:
+        api: docs/30_設計/API/エンドポイント/勤怠記録.md
+        db: docs/30_設計/データベース/勤怠記録.md
+        screens:
+          - docs/30_設計/画面/screens/勤怠一覧.md
+          - docs/30_設計/画面/screens/勤怠詳細.md
+          - docs/30_設計/画面/screens/勤怠ダッシュボード.md
+      残業申請:
+        api: docs/30_設計/API/エンドポイント/残業申請.md
+        db: docs/30_設計/データベース/残業申請.md
+        screens:
+          - docs/30_設計/画面/screens/残業申請一覧.md
+          - docs/30_設計/画面/screens/残業申請詳細.md
+      有給残高:
+        api: docs/30_設計/API/エンドポイント/有給残高.md
+        db: docs/30_設計/データベース/有給残高.md
+        screens:
+          - docs/30_設計/画面/screens/有給残日数照会.md
+          - docs/30_設計/画面/screens/有給取得状況ダッシュボード.md
+      月次締め:
+        api: docs/30_設計/API/エンドポイント/月次締め.md
+        db: docs/30_設計/データベース/月次締め.md
+        screens:
+          - docs/30_設計/画面/screens/月次締め一覧.md
+          - docs/30_設計/画面/screens/月次締め詳細.md
+    handoff: docs/.context/phase3-handoff.md
+  phase_35:
+    status: completed
+    outputs:
+      - docs/30_設計/コンテキスト間連携.md
+    handoff: docs/.context/phase35-handoff.md
+  phase_4:
+    status: pending
+
+pending_items:
+  - item: "既存給与システムとの連携仕様"
+    origin: "phase_0"
+    resolved_at: ""
+    resolution: ""
+  - item: "契約社員・パートタイマーの勤務パターン対応範囲"
+    origin: "phase_0"
+    resolved_at: "phase_2"
+    resolution: "MVP は正社員（固定時間制・シフト制・フレックス）のみ対応。契約・パートは v2"
+  - item: "リモートワーク打刻の位置確認ポリシー"
+    origin: "phase_0"
+    resolved_at: "phase_2"
+    resolution: "ClockSource に WEB/MOBILE を定義。GPS は ClockEntry の任意属性として将来拡張"
+  - item: "休暇付与集約を有給残高集約に統合するか"
+    origin: "phase_05"
+    resolved_at: "phase_2"
+    resolution: "統合した。残日数一元管理と年5日義務チェックの簡潔化のため"
+  - item: "通知コンテキストの詳細設計"
+    origin: "phase_1"
+    resolved_at: "phase_35"
+    resolution: "アプリ内通知のみ（MVP）。13種の通知イベントを定義。メール・Slack は v2"
+
+estimate:
+  latest_report: docs/80_見積もり/勤怠管理システム（Kintai）_見積もり_20260207.md
+  generated_at: "2026-02-07T15:50:00+09:00"

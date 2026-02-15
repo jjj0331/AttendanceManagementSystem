@@ -1,0 +1,118 @@
+{
+  "unit_prices": {
+    "api_endpoint": 0.5,
+    "db_table": 1.0,
+    "db_column": 0.1,
+    "context_integration": 2.0,
+    "state_transition": 0.3,
+    "screen_page": 2.0,
+    "frontend_component": 0.3,
+    "component_effectiveness": 0.5,
+    "form_validation": 0.3,
+    "chart": 1.0,
+    "data_table": 0.5
+  },
+  "scope_factors": {
+    "realtime": { "selected": "none", "value": 1.0 },
+    "i18n": { "selected": "single", "value": 1.0 },
+    "test_level": { "selected": "plus_integration", "value": 1.0 }
+  },
+  "team_factors": {
+    "tech_proficiency": 1.0,
+    "domain_knowledge": 1.0,
+    "team_size_overhead": 1.0
+  },
+  "buffer_rate": 0.2,
+  "max_combined_factor": 5.0,
+  "pricing": {
+    "unit_price_per_month": 80,
+    "working_days_per_month": 20
+  },
+  "design_review_score": 92.2,
+  "integration": {
+    "total_count": 9,
+    "breakdown": { "saga": 4, "query": 4, "event": 1 }
+  },
+  "aggregates": [
+    {
+      "name": "勤怠記録",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 13, "errorCodes": 34, "authPatterns": 13 },
+        "db": { "entities": 6, "columns": 76, "constraints": 18, "indexes": 17, "views": 1 },
+        "screen": { "pages": 4, "components": 130, "charts": 0, "dataTables": 3, "forms": 1 },
+        "domain": { "states": 5, "transitions": 8 }
+      }
+    },
+    {
+      "name": "シフト",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 10, "errorCodes": 23, "authPatterns": 10 },
+        "db": { "entities": 4, "columns": 64, "constraints": 22, "indexes": 11, "views": 0 },
+        "screen": { "pages": 4, "components": 62, "charts": 0, "dataTables": 2, "forms": 4 },
+        "domain": { "states": 6, "transitions": 7 }
+      }
+    },
+    {
+      "name": "残業申請",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 7, "errorCodes": 21, "authPatterns": 7 },
+        "db": { "entities": 3, "columns": 35, "constraints": 10, "indexes": 11, "views": 0 },
+        "screen": { "pages": 4, "components": 108, "charts": 0, "dataTables": 2, "forms": 3 },
+        "domain": { "states": 6, "transitions": 6 }
+      }
+    },
+    {
+      "name": "休暇申請",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 7, "errorCodes": 20, "authPatterns": 7 },
+        "db": { "entities": 3, "columns": 42, "constraints": 11, "indexes": 12, "views": 0 },
+        "screen": { "pages": 4, "components": 131, "charts": 0, "dataTables": 2, "forms": 3 },
+        "domain": { "states": 5, "transitions": 7 }
+      }
+    },
+    {
+      "name": "打刻修正申請",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 9, "errorCodes": 29, "authPatterns": 9 },
+        "db": { "entities": 3, "columns": 43, "constraints": 13, "indexes": 12, "views": 0 },
+        "screen": { "pages": 5, "components": 155, "charts": 0, "dataTables": 3, "forms": 6 },
+        "domain": { "states": 7, "transitions": 8 }
+      }
+    },
+    {
+      "name": "有給残高",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 9, "errorCodes": 24, "authPatterns": 9 },
+        "db": { "entities": 7, "columns": 74, "constraints": 24, "indexes": 25, "views": 1 },
+        "screen": { "pages": 3, "components": 120, "charts": 1, "dataTables": 2, "forms": 3 },
+        "domain": { "states": 4, "transitions": 4 }
+      }
+    },
+    {
+      "name": "月次締め",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 5, "errorCodes": 13, "authPatterns": 6 },
+        "db": { "entities": 4, "columns": 52, "constraints": 15, "indexes": 16, "views": 0 },
+        "screen": { "pages": 2, "components": 102, "charts": 0, "dataTables": 2, "forms": 1 },
+        "domain": { "states": 5, "transitions": 5 }
+      }
+    },
+    {
+      "name": "通知",
+      "reliability": { "api": 5, "db": 4, "screen": 3, "domain": 3 },
+      "metrics": {
+        "api": { "endpoints": 6, "errorCodes": 16, "authPatterns": 6 },
+        "db": { "entities": 3, "columns": 41, "constraints": 12, "indexes": 12, "views": 0 },
+        "screen": { "pages": 3, "components": 74, "charts": 0, "dataTables": 2, "forms": 2 },
+        "domain": { "states": 3, "transitions": 3 }
+      }
+    }
+  ]
+}

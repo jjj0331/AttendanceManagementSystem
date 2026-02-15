@@ -1,0 +1,42 @@
+{
+  "decidedAt": "2026-02-08",
+  "decidedFor": "勤怠記録（初回設計時に決定、プロジェクト全体で再利用）",
+  "api": {
+    "auth": "bearer",
+    "multiTenant": "none",
+    "pagination": "offset",
+    "errorFormat": "rfc7807"
+  },
+  "db": {
+    "dataModel": "immutable",
+    "eventHistory": true,
+    "readModel": "sync",
+    "multiTenant": "none",
+    "softDelete": true,
+    "auditColumns": "detailed"
+  },
+  "screen": {
+    "aesthetic": "clean-minimal",
+    "colorScheme": "mono-accent"
+  },
+  "basePaths": {
+    "勤怠記録": "/api/v1/attendances",
+    "残業申請": "/api/v1/overtime-requests",
+    "シフト": "/api/v1/shifts",
+    "有給残高": "/api/v1/paid-leave-balances",
+    "月次締め": "/api/v1/monthly-closings",
+    "休暇申請": "/api/v1/leave-requests",
+    "打刻修正申請": "/api/v1/clock-corrections",
+    "通知": "/api/v1/notifications"
+  },
+  "contextMap": {
+    "勤怠記録": "勤怠管理",
+    "シフト": "勤怠管理",
+    "残業申請": "申請承認",
+    "休暇申請": "申請承認",
+    "打刻修正申請": "申請承認",
+    "有給残高": "休暇管理",
+    "月次締め": "月次処理",
+    "通知": "通知"
+  }
+}
