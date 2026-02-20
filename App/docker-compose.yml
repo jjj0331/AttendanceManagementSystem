@@ -1,0 +1,45 @@
+services:
+  # 1. データベース (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: my_db
+    ports:
+      - "5432:5432"
+    volumes:
+      # ここで新しい箱「db-data-new」を使うと宣言
+      - db-data-new:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d my_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. バックエンド (Spring Boot)
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/my_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # 3. フロントエンド (Next.js)
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8080
+    depends_on:
+      - backend
+
+# ↓↓↓ ここが修正ポイント！ ↓↓↓
+volumes:
+  db-data-new:  # 上の services で使った名前と完全に一致させました
